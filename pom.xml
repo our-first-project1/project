@@ -27,6 +27,7 @@
       <scope>test</scope>
     </dependency>
 
+    <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
     <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
@@ -48,12 +49,16 @@
       <version>3.1.0</version>
       <scope>provided</scope>
     </dependency>
+
+
     <!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
     <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>jstl</artifactId>
       <version>1.2</version>
     </dependency>
+
+
     <!-- https://mvnrepository.com/artifact/com.mchange/c3p0 -->
     <dependency>
       <groupId>com.mchange</groupId>
@@ -92,7 +97,7 @@
 
   </dependencies>
 
-  <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+
 
 
 
