@@ -20,8 +20,23 @@ public class UserDao extends BaseDao<User> {
         return user;
     }
 
-    public boolean insertUser(String sql,Object...params) throws SQLException {
-        int i = this.update(sql, params);
-        return i>0;
+    public int insertUser(User user) throws SQLException {
+        String sql = "insert into users values(?,?,?,?,?,?,?,?,?,null)";
+        int i = this.update(sql,user.getUid(),user.getUsername(),user.getPassword(),user.getName(),
+                user.getPersonId(),user.getEmail(),user.getTelephone(),user.getBirthday(),user.getSex());
+
+        return i;
+    }
+
+    public User selectPhone(String phone) throws SQLException {
+        String sql = "select * from users where telephone = ?";
+        User user = this.getBean(sql, User.class, phone);
+        return user;
+    }
+
+    public User selectUsername(String username) throws SQLException {
+        String sql = "select * from users where username = ?";
+        User user = this.getBean(sql, User.class, username);
+        return user;
     }
 }
