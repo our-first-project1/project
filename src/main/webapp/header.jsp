@@ -46,6 +46,6 @@
 		        </div>
 		    </div>
 		</div>
-
+		<input type="hidden" id = "path" value="${pageContext.request.contextPath}"/>
 	</body>
 </html>
