@@ -60,41 +60,50 @@
 </div>
 
 <div class="col-md-12 column" style=";height: 60px;text-align: center;border: 1px solid #E5E5E5;">
-    <form class="form-inline" style="margin-top: 10px;">
+    <form action="#" method="post" class="form-inline" style="margin-top: 10px;">
         <div class="form-group">
-            <label>出发城市</label>
-            <input type="text" class="form-control" id="depart_station" placeholder="请输入">
+            <label>城市</label>
+            <input type="text" class="form-control" id="depart_station" name="city" value="${city}" placeholder="请输入">
         </div>
         <div class="form-group">
-            <label>起始车站</label>
-            <input type="text" class="form-control" id="dest_station" placeholder="请输入">
+            <label>车站</label>
+            <input type="text" class="form-control" id="dest_station" name="stationName" value="${stationName}" placeholder="请输入">
         </div>
-        <div class="form-group">
-            <label >时间</label>
-            <input type="date" class="form-control" id="depart_time" placeholder="请输入">
-        </div>
-        <button type="submit" class="btn btn-default">搜索</button>
+
+        <input type="submit" class="btn btn-default" value="搜索" />
     </form>
 </div>
 
 
-
 <div class="container-fluid">
     <div class="row clearfix">
-        <div class="col-md-4 column">
-            <br>
-            <img alt="300x300" src="image/back.jpg" width="400px" height="300px"/>
-        </div>
-        <div class="col-md-8 column">
-            <ul style="">
-                <br><br>
-                <li><strong>车站名:</strong></li><br>
-                <li><strong>车站所在城市:</strong></li><br>
-                <li><strong>车站地址:</strong></li><br>
-                <li><strong>车站咨询电话:</strong></li><br>
-                <li><strong>取票方式:</strong></li><br>
-            </ul>
-        </div>
+
+        <c:forEach items="${vo.list}" var="station">
+
+            <div class="col-md-4 column">
+                <br>
+                <img alt="300x300" src="${station.pic}" width="400px" height="300px"/>
+            </div>
+            <div class="col-md-8 column">
+                <ul style="">
+                    <br><br>
+                    <li><strong>车站名:</strong>${station.stationName}</li><br>
+                    <li><strong>车站所在城市:</strong>${station.city}</li><br>
+                    <li><strong>车站地址:</strong>${station.address}</li><br>
+                    <li><strong>车站咨询电话:</strong>${station.telephone}</li><br>
+                    <li><strong>取票方式:</strong>${station.getTicket}</li><br>
+                </ul>
+            </div>
+
+        </c:forEach>
+
+        <c:if test="${empty list}">
+            <div style="width: 100%;height: 300px;text-align: center">
+                <p style="font-size: 24px;text-align: center;color: #cccccc">暂无此数据</p>
+            </div>
+
+        </c:if>
+
     </div>
 </div>
 

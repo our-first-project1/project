@@ -38,6 +38,10 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
+  ul{
+    list-style: none;
+  }
+
 </style>
 <div class="head" style="width: 100%; margin-top: 0px">
   <%@ include file="header.jsp" %>
@@ -60,7 +64,7 @@
       <a class="ah-tab-item" href="">汽车票</a>
       <a class="ah-tab-item" href="">汽车站</a>
       <a class="ah-tab-item" href="">路线</a>
-      <a class="ah-tab-item" href="">特卖惠</a>
+
     </div>
   </div>
   <div class="ah-tab-content-wrapper">
@@ -105,14 +109,17 @@
       <div class="banner">
         <div class="box" style="top: 56px;height: 250px">
           <div class="tab">
-            <label>城市
-              <input type="text" placeholder="请输入中文">
-            </label>
-            <label >汽车站
-              <input type="text" placeholder="请输入中文">
-            </label>
+            <form action="/station?method=searchStation" method="post">
+              <label>城市
+                <input type="text" name="city" placeholder="请输入中文">
+              </label>
+              <label >汽车站
+                <input type="text" name="stationName" placeholder="请输入中文">
+              </label>
 
-            <button class="submit">搜索</button>
+              <input class="submit" type="submit" value="搜索" />
+            </form>
+
           </div>
         </div>
       </div>
@@ -135,12 +142,6 @@
         </div>
       </div>
     </div>
-    <div class="ah-tab-content">
-      <h2>Tab item</h2>
-
-
-
-    </div>
   </div>
 </div>
 
@@ -149,8 +150,8 @@
   <div class="">
     <div class="container fly_top">
       <div class="row">
-        <div class="col-xs-2 fly_left"><span>畅途特色</span></div>
-        <div class="col-xs-8 fly_center"><span>机场专线</span></div>
+        <div class="col-xs-2 fly_left"><span>路线推荐</span></div>
+        <div class="col-xs-8 fly_center"><span>热门路线</span></div>
         <div class="col-xs-2 fly_right"><span>热门班次</span></div>
       </div>
     </div>

@@ -55,12 +55,12 @@ public class UserServlet extends BasicServlet {
             e.printStackTrace();
         }
 
-        try {
+        /*try {
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             user.setBirthday(sdf.parse(request.getParameter("birthday")));
         } catch (ParseException e) {
             e.printStackTrace();
-        }
+        }*/
 
         boolean flag = service.register(user);
         if (flag){

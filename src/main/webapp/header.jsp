@@ -8,9 +8,9 @@
 		<link href="./css/bootstrap.min.css" rel="stylesheet">
 	</head>
 	<body>
-		<div class="top">
+		<div class="top" style="height: 50px;">
 		    <div class="container">
-		        <div class="row">
+		        <div class="row" style="margin-top: 10px;">
 		            <div class="col-md-8 top_left">
 		                <div>
 		                    <ul>
@@ -28,7 +28,7 @@
 		                    </ul>
 		                </div>
 		            </div>
-		            
+
 		            <div class="col-md-4 top_right">
 		                <div>
 		                    <ul>
@@ -37,7 +37,14 @@
 		                        </li>
 		                        <li><a href="#">我的畅途</a></li>
 		                        <li><a href="#">客户服务</a></li>
+
 								<c:if test="${user!=null}">
+									<li>
+										<div style="width: 40px;height: 40px; border: 1px solid #E38D13;border-radius: 25px; background-image: url(image/back.jpg);">
+											<!-- <img src="image/back.jpg" width="15px" height="15px" > -->
+										</div>
+									</li>
+
 									<li><a href="/user?method=logout" style="color: red">退出</a></li>
 								</c:if>
 		                    </ul>

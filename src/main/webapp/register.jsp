@@ -154,7 +154,7 @@
 			messages:{
 				"username":{
 					required:"必填",
-					minlength:"昵称长度至少为3位"
+					maxlength:"昵称长度最高为3位"
 				},
 				"password":{
 					required:"必填",
@@ -182,7 +182,6 @@
 				}
 			},
             success:function(label){
-
                 label.text("").addClass("success")
             }
 		})
