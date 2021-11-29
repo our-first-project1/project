@@ -21,6 +21,7 @@
   <link rel="stylesheet" type="text/css" href="./css/jquery.horizontalmenu.css"/>
 
 
+
 </head>
 
 <body>
@@ -130,14 +131,15 @@
       <div class="banner">
         <div class="box" style="top: 56px;height: 250px">
           <div class="tab">
-            <label>起点城市
-              <input type="text" placeholder="请输入中文">
-            </label>
-            <label >终点城市
-              <input type="text" placeholder="请输入中文">
-            </label>
-
-            <button class="submit">搜索</button>
+            <form action="/route?method=searchRoute" method="post">
+              <label>起点城市
+                <input type="text" name="routeDepartCity" placeholder="请输入中文">
+              </label>
+              <label >终点城市
+                <input type="text" name="routeDestCity" placeholder="请输入中文" required="required" />
+              </label>
+              <input type="submit" class="submit" value="搜索" />
+            </form>
           </div>
         </div>
       </div>

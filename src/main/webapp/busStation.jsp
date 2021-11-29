@@ -54,8 +54,8 @@
         <a class="ah-tab-item" href="">首页</a>
         <a class="ah-tab-item" href="">汽车票</a>
         <a class="ah-tab-item" href="">汽车站</a>
-        <a class="ah-tab-item" href="">保险</a>
-        <a class="ah-tab-item" href="">特卖惠</a>
+        <a class="ah-tab-item" href="">路线</a>
+
     </div>
 </div>
 
@@ -78,27 +78,28 @@
 <div class="container-fluid">
     <div class="row clearfix">
 
-        <c:forEach items="${vo.list}" var="station">
+        <c:forEach items="${list}" var="station">
+            <div style="width: 100%;height: 400px">
+                <div class="col-md-4 column">
+                    <br>
+                    <img alt="300x300" src="${station.pic}" width="400px" height="300px"/>
+                </div>
+                <div class="col-md-8 column">
 
-            <div class="col-md-4 column">
-                <br>
-                <img alt="300x300" src="${station.pic}" width="400px" height="300px"/>
-            </div>
-            <div class="col-md-8 column">
-                <ul style="">
                     <br><br>
-                    <li><strong>车站名:</strong>${station.stationName}</li><br>
-                    <li><strong>车站所在城市:</strong>${station.city}</li><br>
-                    <li><strong>车站地址:</strong>${station.address}</li><br>
-                    <li><strong>车站咨询电话:</strong>${station.telephone}</li><br>
-                    <li><strong>取票方式:</strong>${station.getTicket}</li><br>
-                </ul>
+                    <p><strong>车站名:</strong>${station.stationName}</p><br />
+                    <p><strong>车站所在城市:</strong>${station.city}</p><br />
+                    <p><strong>车站地址:</strong>${station.address}</p><br />
+                    <p><strong>车站咨询电话:</strong>${station.telephone}</p><br>
+                    <p><strong>取票方式:</strong>${station.getTicket}</p><br>
+
+                </div>
             </div>
 
         </c:forEach>
 
         <c:if test="${empty list}">
-            <div style="width: 100%;height: 300px;text-align: center">
+            <div style="width: 100%;height: 200px;text-align: center;margin-top: 200px">
                 <p style="font-size: 24px;text-align: center;color: #cccccc">暂无此数据</p>
             </div>
 
