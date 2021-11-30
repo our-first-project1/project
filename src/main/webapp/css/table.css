@@ -1,0 +1,55 @@
+.box1 {
+  background-color: #fff;
+  width: 800px;
+  margin: auto;
+  clear: both;
+}
+.box1 table tbody tr th {
+  border: 1px solid #e7e7e7;
+  background-color: #e7e7e7;
+  text-align: center!important;
+}
+.box1 table tbody tr td {
+  border: 1px solid #e7e7e7;
+}
+.box1 table tbody tr td button {
+  background-color: orange;
+  border: none;
+  color: white;
+  padding: 4px 20px;
+  border-radius: 5px;
+}
+.box2 {
+  width: 700px;
+  margin: auto;
+  position: relative;
+  top: -5px;
+}
+.box2 .date {
+  margin-top: 30px;
+  margin-bottom: 20px;
+  margin-right: 10px;
+  width: 160px!important;
+  float: left;
+}
+.box2 .begin {
+  margin-top: 30px;
+  margin-right: 10px;
+  width: 160px!important;
+  float: left;
+}
+.box2 .end {
+  margin-top: 30px;
+  margin-right: 10px;
+  width: 160px!important;
+  float: left;
+}
+.box2 button {
+  margin-top: 33px;
+  width: 120px;
+  background-color: orange;
+  border: none;
+  color: white;
+  padding: 3px 0;
+  border-radius: 5px;
+}

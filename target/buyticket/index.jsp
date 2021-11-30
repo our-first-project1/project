@@ -10,17 +10,16 @@
 <html lang="zh-CN">
 
 <head>
+
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>肉肉汽车购票网</title>
+  <title>胖胖汽车购票网</title>
   <link rel="stylesheet" href="css/01.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/swiper-bundle.min.css">
   <link rel="stylesheet" href="./css/bootstrap.min.css" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="./css/jquery.horizontalmenu.css"/>
-
-
 
 </head>
 
@@ -223,6 +222,13 @@
   </div>
 
 </div>
+
+
+<div class="foot">
+  <%@ include file="footer.jsp" %>
+</div>
+<%--
+
 <div class="quession">
   <div class="container ">
     <div class="row">
@@ -318,7 +324,7 @@
       <div class="col-md-3 item4">
         <div>
           <p>APP客户端</p>
-<%--          <img src="image/eq2.gif" alt="">--%>
+&lt;%&ndash;          <img src="image/eq2.gif" alt="">&ndash;%&gt;
         </div>
       </div>
     </div>
@@ -330,6 +336,7 @@
     <p><a target="_blank" rel="nofollow" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=32011102010194" class="mgr10"><img src="https://res02.changtu.com/ctw/image/beian_icon.png" />苏公网安备 32011102010015</a> ┆ <a target="_blank" href="https://res02.changtu.com/ctw/image/gxjsqyzs.jpg">高新技术企业证书</a> ┆ 联系地址：南京高新开发区星火路11号动漫大厦B座<span class="mgl20">联系电话：025-68593001</span></p>
   </div>
 </div>
+--%>
 
 
 
@@ -346,6 +353,7 @@
 
 <script src="./js/jquery.horizontalmenu.js" type="text/javascript" charset="utf-8"></script>
 <script>
+
   function dateTimenow() {
     var date = new Date();
     var year = date.getFullYear();

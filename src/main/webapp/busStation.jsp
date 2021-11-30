@@ -77,15 +77,13 @@
 
 <div class="container-fluid">
     <div class="row clearfix">
-
         <c:forEach items="${list}" var="station">
             <div style="width: 100%;height: 400px">
                 <div class="col-md-4 column">
                     <br>
                     <img alt="300x300" src="${station.pic}" width="400px" height="300px"/>
                 </div>
-                <div class="col-md-8 column">
-
+                <div class="col-md-8 column" style="float: left">
                     <br><br>
                     <p><strong>车站名:</strong>${station.stationName}</p><br />
                     <p><strong>车站所在城市:</strong>${station.city}</p><br />
