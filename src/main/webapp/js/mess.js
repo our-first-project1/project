@@ -47,6 +47,7 @@ function validateUsername() {
 function myCount() {
     var path = $("#path").val();
     $.ajax({
+        async:false,
         type:"get",
         url:path+"/orders?method=viewAll",
         success:function (content) {

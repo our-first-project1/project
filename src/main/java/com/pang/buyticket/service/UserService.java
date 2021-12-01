@@ -73,4 +73,15 @@ public class UserService {
         return false;
 
     }
+    public boolean active(String code){
+        try {
+            int i = dao.updateState(code);
+            return i > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            JDBCUtils.close();
+        }
+        return false;
+    }
 }

@@ -21,9 +21,10 @@ public class UserDao extends BaseDao<User> {
     }
 
     public int insertUser(User user) throws SQLException {
-        String sql = "insert into users values(?,?,?,?,?,?,?,?,?,null)";
+        String sql = "insert into users values(?,?,?,?,?,?,?,?,?,null,0,?)";
         int i = this.update(sql,user.getUid(),user.getUsername(),user.getPassword(),user.getName(),
-                user.getPersonId(),user.getEmail(),user.getTelephone(),user.getBirthday(),user.getSex());
+                user.getPersonId(),user.getEmail(),user.getTelephone(),user.getBirthday(),user.getSex(),
+                user.getCode());
 
         return i;
     }
@@ -38,5 +39,11 @@ public class UserDao extends BaseDao<User> {
         String sql = "select * from users where username = ?";
         User user = this.getBean(sql, User.class, username);
         return user;
+    }
+
+    public int updateState(String code) throws SQLException {
+        String sql = "update users set state = 1 where code=?";
+        int i = this.update(sql, code);
+        return i;
     }
 }

@@ -29,12 +29,15 @@ public class User {
     private String sex;
     //用户头像
     private String uimage;
-
+    //状态  0-未激活  1-已激活
+    private int state;
+    //激活码
+    private String code;
 
     public User() {
     }
 
-    public User(String uid, String username, String password, String name, Long personId, String email, String telephone, Date birthday, String sex, String uimage) {
+    public User(String uid, String username, String password, String name, Long personId, String email, String telephone, Date birthday, String sex, String uimage, int state, String code) {
         this.uid = uid;
         this.username = username;
         this.password = password;
@@ -45,6 +48,8 @@ public class User {
         this.birthday = birthday;
         this.sex = sex;
         this.uimage = uimage;
+        this.state = state;
+        this.code = code;
     }
 
     /**
@@ -207,8 +212,39 @@ public class User {
         this.uimage = uimage;
     }
 
-    @Override
+    /**
+     * 获取
+     * @return state
+     */
+    public int getState() {
+        return state;
+    }
+
+    /**
+     * 设置
+     * @param state
+     */
+    public void setState(int state) {
+        this.state = state;
+    }
+
+    /**
+     * 获取
+     * @return code
+     */
+    public String getCode() {
+        return code;
+    }
+
+    /**
+     * 设置
+     * @param code
+     */
+    public void setCode(String code) {
+        this.code = code;
+    }
+
     public String toString() {
-        return "User{uid = " + uid + ", username = " + username + ", password = " + password + ", name = " + name + ", personId = " + personId + ", email = " + email + ", telephone = " + telephone + ", birthday = " + birthday + ", sex = " + sex + ", uimage = " + uimage + "}";
+        return "User{uid = " + uid + ", username = " + username + ", password = " + password + ", name = " + name + ", personId = " + personId + ", email = " + email + ", telephone = " + telephone + ", birthday = " + birthday + ", sex = " + sex + ", uimage = " + uimage + ", state = " + state + ", code = " + code + "}";
     }
 }

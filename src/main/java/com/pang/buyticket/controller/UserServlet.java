@@ -3,10 +3,13 @@ package com.pang.buyticket.controller;
 import com.alibaba.fastjson.JSONObject;
 import com.pang.buyticket.entity.User;
 import com.pang.buyticket.service.UserService;
+import com.pang.buyticket.utils.CommonUtils;
+import com.pang.buyticket.utils.MailUtils;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.beanutils.ConvertUtils;
 import org.apache.commons.beanutils.Converter;
 
+import javax.mail.MessagingException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -26,7 +29,7 @@ public class UserServlet extends BasicServlet {
 
     private UserService service = new UserService();
 
-    public void register(final HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public void register(final HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, MessagingException {
         Map<String, String[]> map = request.getParameterMap();
         User user = new User();
 
@@ -61,12 +64,30 @@ public class UserServlet extends BasicServlet {
         } catch (ParseException e) {
             e.printStackTrace();
         }
+        String code = CommonUtils.getUUID().replaceAll("-","");
+        user.setCode(code);
 
         boolean flag = service.register(user);
         if (flag){
+            //发送激活码
+            String emailMsg = "胖胖旅行社欢迎您的注册，请点击以下激活码链接激活账户："+
+                    "<br>"+"<a href='http://192.168.22.71:8899/user?method=active&code="+code+"'>"+
+                    code+"</a><br>"+"请勿将激活码透露给其他人！";
+            MailUtils.sendMail(user.getEmail(),"胖胖旅行社激活邮箱",emailMsg); //目标邮箱  邮件主题  邮件内容
             request.getRequestDispatcher("login.jsp").forward(request,response);
         }else {
             request.getRequestDispatcher("register.jsp").forward(request,response);
+        }
+    }
+
+    //激活邮箱
+    public void active(HttpServletRequest request,HttpServletResponse response) throws ServletException,IOException {
+        String code = request.getParameter("code");
+        boolean flag = service.active(code);
+        if(flag){
+            response.sendRedirect("login.jsp");
+        }else{
+            response.sendRedirect("register.jsp");
         }
     }
 
