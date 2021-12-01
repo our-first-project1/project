@@ -72,16 +72,18 @@
       <div class="banner">
         <div class="box">
           <div class="tab">
-            <label >出发
-              <input type="text" placeholder="请输入中文">
-            </label>
-            <label >到达
-              <input type="text" placeholder="请输入中文">
-            </label>
-            <label >出发日期
-              <input type="date" id="txtEnterDate">
-            </label>
-            <button class="submit">搜索</button>
+              <form action="/ticket?method=buyTicket" method="post">
+                  <label >出发
+                      <input type="text" name="departCity" placeholder="请输入中文">
+                  </label>
+                  <label >到达
+                      <input type="text" name="destCity" placeholder="请输入中文">
+                  </label>
+                  <label >出发日期
+                      <input type="date" name="departTime" id="txtEnterDate">
+                  </label>
+                  <input type="submit" class="submit" value="搜索" />
+              </form>
           </div>
         </div>
       </div>
@@ -91,16 +93,18 @@
       <div class="banner">
         <div class="box">
           <div class="tab">
-            <label >出发
-              <input type="text" placeholder="请输入中文">
-            </label>
-            <label >到达
-              <input type="text" placeholder="请输入中文">
-            </label>
-            <label >出发日期
-              <input type="date" id="">
-            </label>
-            <button class="submit">搜索</button>
+              <form action="ticket?method=buyTicket" method="post">
+                  <label >出发
+                      <input type="text" name="departCity" placeholder="请输入中文">
+                  </label>
+                  <label >到达
+                      <input type="text" name="destCity" placeholder="请输入中文">
+                  </label>
+                  <label >出发日期
+                      <input type="date" name="departTime" >
+                  </label>
+                  <input type="submit" class="submit" value="搜索" />
+              </form>
           </div>
         </div>
       </div>

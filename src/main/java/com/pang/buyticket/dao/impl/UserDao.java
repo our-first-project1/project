@@ -5,6 +5,7 @@ package com.pang.buyticket.dao.impl;
 import com.pang.buyticket.dao.BaseDao;
 import com.pang.buyticket.dao.IUserDao;
 import com.pang.buyticket.entity.User;
+import com.pang.buyticket.md5.MD5utils;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -33,8 +34,9 @@ public class UserDao extends BaseDao<User> implements IUserDao {
 
     @Override
     public int insertUser(User user) throws SQLException {
+        MD5utils md5=new MD5utils();
         String sql = "insert into users values(?,?,?,?,?,?,?,?,?,null)";
-        int i = this.update(sql,user.getUid(),user.getUsername(),user.getPassword(),user.getName(),
+        int i = this.update(sql,user.getUid(),user.getUsername(),md5.string2MD5(user.getPassword()),user.getName(),
                 user.getPersonId(),user.getEmail(),user.getTelephone(),user.getBirthday(),user.getSex());
 
         return i;

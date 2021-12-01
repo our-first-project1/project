@@ -18,6 +18,33 @@
 				width: 50%;
 			}
 		</style>
+
+<%--	检测Cookie	--%>
+		<%
+			String telephone=null;
+			String password=null;
+
+			Cookie[] cookies = request.getCookies();
+			if(cookies!=null){
+				for (Cookie cookie : cookies) {
+					if(cookie!=null){
+						if(cookie.getName().equals("telephone")){
+							telephone=cookie.getValue();
+						}
+						if(cookie.getName().equals("password")){
+							password=cookie.getValue();
+						}
+					}
+				}
+			}
+
+			if(telephone!=null && password!=null){
+				request.getRequestDispatcher(request.getContextPath()+
+						"/user?method=login&telephone="+telephone+"&password="+password+"&remember=remember").forward(request,response);
+			}
+
+		%>
+
 	</head>
 	<body>
 	<div class="head" style="width: 100%; margin-top: 0px">
@@ -39,6 +66,10 @@
 							<label for="txtFloatingPassword">Password</label>
 							<input type="password" class="form-control" id="txtFloatingPassword" name="password" placeholder="Enter Password">
 						</div>
+						<div style="color: coral">
+							<input type="radio" name="free" value="free" />自动登录(有效期:1天)
+						</div>
+						<br>
 						<input type="submit" class="btn btn-primary" value="Submit">
 						<div id="" align="right" style="color: #FFFFFF;">没有账号？
 							<a href="register.jsp" style="color: #FF7600;;">立即注册</a>
