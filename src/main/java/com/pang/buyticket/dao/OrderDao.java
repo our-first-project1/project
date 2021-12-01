@@ -13,14 +13,14 @@ import java.util.List;
 public class OrderDao extends BaseDao<OrdersList> {
     //查询订单总数
     public Long selectCounts(String query) throws SQLException {
-        String sql = "select count(*) from orderslist where name like concat('%',?,'%')";
+        String sql = "select count(*) from orderslist where userId like concat('%',?,'%')";
         Object value = this.getSingleValue(sql, query);
         return Long.valueOf(value.toString());
     }
 
     //根据条件，模糊查询订单信息，分页
     public List<OrdersList> selectAllByQuery(String query,Integer begin) throws SQLException {
-        String sql = "select * from orderslist where name like concat('%',?,'%') limit ?,5";
+        String sql = "select * from orderslist where userId like concat('%',?,'%') limit ?,5";
         List<OrdersList> list = this.getBeanList(sql, OrdersList.class, query, begin);
         return list;
     }

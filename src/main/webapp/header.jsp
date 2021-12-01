@@ -33,7 +33,7 @@
 		                <div>
 		                    <ul>
 		                        <li>
-		                            <a href="#">我的订单</a>
+		                            <a href="/orders?method=viewAll">我的订单</a>
 		                        </li>
 		                        <li><a href="#">我的畅途</a></li>
 		                        <li><a href="#">客户服务</a></li>

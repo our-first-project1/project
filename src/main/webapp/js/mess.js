@@ -48,8 +48,9 @@ function myCount() {
     var path = $("#path").val();
     $.ajax({
         type:"get",
-        url:path+"/orders?code=viewAll",
+        url:path+"/orders?method=viewAll",
         success:function (content) {
+            console.log("进入事件");
             $(".showAjax").html(content);
         }
     })

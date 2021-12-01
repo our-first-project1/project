@@ -76,6 +76,7 @@ public class UserServlet extends BasicServlet {
         User user = service.login(telephone, password);
         if (user!=null){
             HttpSession session = request.getSession();
+
             session.setAttribute("user",user);
 
             request.getRequestDispatcher(request.getContextPath()+"/index.jsp").forward(request,response);

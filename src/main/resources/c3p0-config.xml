@@ -28,7 +28,7 @@
   <!-- 根据名字返回对应配置 -->
   <named-config name="mysql"> 
      <property name="driverClass">com.mysql.jdbc.Driver</property>
-     <property name="jdbcUrl">jdbc:mysql://localhost:3306/buyticket?characterEncoding=utf8</property>
+     <property name="jdbcUrl">jdbc:mysql://localhost:3306/bus?characterEncoding=utf8</property>
      <property name="user">root</property>
      <property name="password">root</property>
       <!--当池中的连接不够时，一次创建多少个连接-->

@@ -128,7 +128,8 @@ public class PageVO<T> {
         this.list = list;
     }
 
+
     public String toString() {
-        return "PageVO{pageNow = " + pageNow + ", myCounts = " + myCounts + ", myPages = " + myPages + ", query1 = " + query1 + ", query2 = " + query2 + ", list = " + list + "}";
+        return "PageVO{pageNow = " + pageNow + ", myCounts = " + myCounts + ", myPages = " + myPages + ", query1 = " + query1 + ", query2 = " + query2 + ", list = " + list+ "}";
     }
 }

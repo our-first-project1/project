@@ -11,9 +11,12 @@
 <head>
     <title>orderList</title>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="css/material-scrolltop.css">
 </head>
-<body><div class="container">
+<body>
+<div class="head" style="width: 100%; margin-top: 0px">
+    <%@ include file="header.jsp" %>
+</div>
+<div class="container">
     <div class="row clearfix">
         <div class="col-md-12 column">
             <div class="row clearfix">
@@ -89,8 +92,16 @@
                         <td class="ticketPrice">${orderslist.ticketPrice}</td>
                         <td class="ticketStatus">${orderslist.ticketStatus}</td>
                         <td class="operate">
-                            <input type="button" value="改签">
-                            <input type="button" value="退票">
+                            <c:if test="${orderslist.orderStatus==0}">
+                                <input type="button" value="付款">
+                            </c:if>
+                            <c:if test="${orderslist.orderStatus==1}">
+                                <input type="button" value="改签">
+                                <input type="button" value="退票">
+                            </c:if>
+                            <c:if test="${orderslist.orderStatus==2}">
+                                <input type="button" value="退票">
+                            </c:if>
                         </td>
                     </tr>
                 </c:forEach>
@@ -98,25 +109,20 @@
             </table>
             <ul class="pagination">
                 <li>
-                    <a href="#">Prev</a>
+                    <a href="/orders?method=viewAll&pageNow=1">首页</a>
                 </li>
+                <c:forEach begin="1" end="${vo.myPages}" var="page">
+                    <li>
+                        <c:if test="${vo.pageNow ne page}">
+                            <a href="/orders?method=viewAll&pageNow=${page}">${page}</a>
+                        </c:if>
+                        <c:if test="${vo.pageNow eq page}">
+                            <a style="background: orange ;color: white;">${page}</a>
+                        </c:if>
+                    </li>
+                </c:forEach>
                 <li>
-                    <a href="#">1</a>
-                </li>
-                <li>
-                    <a href="#">2</a>
-                </li>
-                <li>
-                    <a href="#">3</a>
-                </li>
-                <li>
-                    <a href="#">4</a>
-                </li>
-                <li>
-                    <a href="#">5</a>
-                </li>
-                <li>
-                    <a href="#">Next</a>
+                    <a href="/orders?method=viewAll&pageNow=${vo.myPages}">末页</a>
                 </li>
             </ul>
         </div>
@@ -124,5 +130,7 @@
 </div>
 </body>
 <script src="js/jquery-3.1.1.js" type="text/javascript" charset="utf-8"></script>
-<script src="css/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/mess.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/paging.js" type="text/javascript" charset="utf-8"></script>
 </html>

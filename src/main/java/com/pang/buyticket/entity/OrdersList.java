@@ -48,12 +48,14 @@ public class OrdersList {
     private int takeChildren;
     //下单用户编号
     private String userId;
+    //订单状态： 0 未付款，可付款； 1 已付款 可改签 可退票； 2 改签过/已过改签时间 可退票
+    private int orderStatus;
 
 
     public OrdersList() {
     }
 
-    public OrdersList(String orderId, String operateTime, Date departDate, String departTime, String ticketId, String busType, int checkoutId, String ticketStatus, String ticketType, Double ticketPrice, String name, Long personId, String telephone, int seatId, String departStation, String destStation, String insurance, int takeChildren, String userId) {
+    public OrdersList(String orderId, String operateTime, Date departDate, String departTime, String ticketId, String busType, int checkoutId, String ticketStatus, String ticketType, Double ticketPrice, String name, Long personId, String telephone, int seatId, String departStation, String destStation, String insurance, int takeChildren, String userId, int orderStatus) {
         this.orderId = orderId;
         this.operateTime = operateTime;
         this.departDate = departDate;
@@ -73,6 +75,7 @@ public class OrdersList {
         this.insurance = insurance;
         this.takeChildren = takeChildren;
         this.userId = userId;
+        this.orderStatus = orderStatus;
     }
 
     /**
@@ -379,8 +382,23 @@ public class OrdersList {
         this.userId = userId;
     }
 
-    @Override
+    /**
+     * 获取
+     * @return orderStatus
+     */
+    public int getOrderStatus() {
+        return orderStatus;
+    }
+
+    /**
+     * 设置
+     * @param orderStatus
+     */
+    public void setOrderStatus(int orderStatus) {
+        this.orderStatus = orderStatus;
+    }
+
     public String toString() {
-        return "OrdersList{orderId = " + orderId + ", operateTime = " + operateTime + ", departDate = " + departDate + ", departTime = " + departTime + ", ticketId = " + ticketId + ", busType = " + busType + ", checkoutId = " + checkoutId + ", ticketStatus = " + ticketStatus + ", ticketType = " + ticketType + ", ticketPrice = " + ticketPrice + ", name = " + name + ", personId = " + personId + ", telephone = " + telephone + ", seatId = " + seatId + ", departStation = " + departStation + ", destStation = " + destStation + ", insurance = " + insurance + ", takeChildren = " + takeChildren + ", userId = " + userId + "}";
+        return "OrdersList{orderId = " + orderId + ", operateTime = " + operateTime + ", departDate = " + departDate + ", departTime = " + departTime + ", ticketId = " + ticketId + ", busType = " + busType + ", checkoutId = " + checkoutId + ", ticketStatus = " + ticketStatus + ", ticketType = " + ticketType + ", ticketPrice = " + ticketPrice + ", name = " + name + ", personId = " + personId + ", telephone = " + telephone + ", seatId = " + seatId + ", departStation = " + departStation + ", destStation = " + destStation + ", insurance = " + insurance + ", takeChildren = " + takeChildren + ", userId = " + userId + ", orderStatus = " + orderStatus + "}";
     }
 }

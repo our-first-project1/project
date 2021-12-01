@@ -133,12 +133,12 @@
 					</div>
 					<div class="col-md-10 column">
 						<div class="showAjax">
-
+							<h1>这里显示</h1>
 						</div>
 
 
 						<!-- 个人账户 -->
-						<div id="account" hidden="hidden">
+						<div id="account">
 							<div >
 								个人账户
 							</div>
@@ -320,6 +320,7 @@
 	</body>
 	<script src="js/jquery-3.1.1.js" type="text/javascript" charset="utf-8"></script>
 	<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/mess.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript">
 
 	</script>
