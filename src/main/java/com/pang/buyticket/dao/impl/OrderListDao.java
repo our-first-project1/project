@@ -5,6 +5,7 @@ import com.pang.buyticket.dao.IOrderListDao;
 import com.pang.buyticket.entity.OrdersList;
 
 import java.sql.SQLException;
+import java.util.List;
 
 /**
  * @Description TODO
@@ -23,6 +24,22 @@ public class OrderListDao extends BaseDao<OrdersList> implements IOrderListDao {
                 ordersList.getSeatId(), ordersList.getDepartStation(), ordersList.getDestStation(), ordersList.getInsurance(),
                 ordersList.getTakeChildren(), ordersList.getUserId(), ordersList.getOrderStatus());
         return i;
+    }
+
+    //查询订单总数
+    @Override
+    public Long selectCounts(String query) throws SQLException {
+        String sql = "select count(*) from orderslist where name like concat('%',?,'%')";
+        Object value = this.getSingleValue(sql, query);
+        return Long.valueOf(value.toString());
+    }
+
+    //根据条件，模糊查询订单信息，分页
+    @Override
+    public List<OrdersList> selectAllByQuery(String query, Integer begin) throws SQLException {
+        String sql = "select * from orderslist where name like concat('%',?,'%') limit ?,5";
+        List<OrdersList> list = this.getBeanList(sql, OrdersList.class, query, begin);
+        return list;
     }
 
 }

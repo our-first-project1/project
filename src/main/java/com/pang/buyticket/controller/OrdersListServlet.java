@@ -7,6 +7,7 @@ import com.pang.buyticket.service.OrderListService;
 import com.pang.buyticket.service.PassengersService;
 import com.pang.buyticket.service.TicketListService;
 import com.pang.buyticket.utils.CommonUtils;
+import com.pang.buyticket.vo.PageVO;
 import org.apache.commons.beanutils.ConvertUtils;
 import org.apache.commons.beanutils.Converter;
 
@@ -31,7 +32,9 @@ import java.util.Random;
 public class OrdersListServlet extends BasicServlet {
 
     private PassengersService passengersService = new PassengersService();
+
     private OrderListService orderListService = new OrderListService();
+
     private TicketListService ticketListService = new TicketListService();
 
     public void insertOrderList(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -104,4 +107,24 @@ public class OrdersListServlet extends BasicServlet {
         }
 
     }
+
+
+    public void viewAll(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String query = request.getParameter("query");
+        String page = request.getParameter("pageNow");
+        if(query==null){
+            query = "";//默认空串
+        }
+        Integer pageNow = 0;
+        if(page==null){
+            pageNow=1;
+        }else{
+            pageNow =Integer.valueOf(page);
+        }
+        //执行分页业务
+        PageVO<OrdersList> vo = orderListService.paging(query , pageNow);
+        request.setAttribute("vo",vo);
+        request.getRequestDispatcher("orderlist.jsp").forward(request,response);
+    }
+
 }

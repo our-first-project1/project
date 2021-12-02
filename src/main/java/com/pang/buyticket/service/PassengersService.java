@@ -13,7 +13,7 @@ import java.util.Date;
  * @Author JF
  * @Date 2021/12/2 14:37
  */
-public class PassengersService {
+public class PassengersService  {
 
     private PassengersDao dao = new PassengersDao();
 
