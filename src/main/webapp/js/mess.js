@@ -42,3 +42,15 @@ function validateUsername() {
         }
     })
 }
+
+//分页+搜索查看数据
+function myCount() {
+    var path = $("#path").val();
+    $.ajax({
+        type:"get",
+        url:path+"/orders?code=viewAll",
+        success:function (content) {
+            $(".showAjax").html(content);
+        }
+    })
+}
