@@ -101,7 +101,8 @@
                 <td>${map.busType}</td>
                 <td>${map.ticketPrice}</td>
                 <td>${map.ticketCounts}</td>
-                <td><a href="/ticket?method=downOrder&departDate=${map.departDate}&departTime=${map.departTime}&departStation=${map.departStation}&destStation=${map.destStation}" class="btn btn-info" onclick="">购买</a></td>
+                <td><a href="/ticket?method=downOrder&departDate=${map.departDate}&departTime=${map.departTime}&departStation=${map.departStation}&destStation=${map.destStation}" class="btn btn-info">购买</a></td>
+
             </tr>
         </c:forEach>
     </table>

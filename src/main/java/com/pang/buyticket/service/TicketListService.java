@@ -1,6 +1,7 @@
 package com.pang.buyticket.service;
 
 import com.pang.buyticket.dao.impl.TicketListDao;
+import com.pang.buyticket.entity.TicketList;
 import com.pang.buyticket.utils.JDBCUtils;
 
 import java.sql.SQLException;
@@ -69,5 +70,36 @@ public class TicketListService {
             JDBCUtils.close();
         }
         return listDestCity;
+    }
+
+    public List<TicketList> selectIndex() {
+        List<TicketList> ticketLists = null;
+        ticketLists = dao.searchIndex();
+        return null;
+    }
+
+    public TicketList selectOne(String departTime, String departStation, String destStation) {
+
+        TicketList ticketList = null;
+        try {
+            ticketList = dao.selectOne(departTime, departStation, destStation);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            JDBCUtils.close();
+        }
+        return ticketList;
+    }
+
+    public boolean updateSeat(String ticketId,int count) {
+        int i = 0;
+        try {
+            i = dao.updateCount(count, ticketId);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            JDBCUtils.close();
+        }
+        return i>0;
     }
 }

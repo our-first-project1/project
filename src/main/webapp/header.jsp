@@ -14,7 +14,7 @@
 		            <div class="col-md-8 top_left">
 		                <div>
 		                    <ul>
-		                        <li>您好，欢迎光临胖胖<a href="index.jsp" style="color: #b92c28">旅途网!</a></li>
+		                        <li>您好，欢迎光临胖胖<a href="/index?method=index" style="color: #b92c28">旅途网!</a></li>
 
 								<c:if test="${user==null}">
 									<li>请</li>
@@ -35,8 +35,8 @@
 		                        <li>
 		                            <a href="#">我的订单</a>
 		                        </li>
-		                        <li><a href="#">我的畅途</a></li>
-		                        <li><a href="#">客户服务</a></li>
+		                        <li><a href="#">景点推荐</a></li>
+		                        <li><a href="#">问题答疑</a></li>
 
 								<c:if test="${user!=null}">
 									<li>

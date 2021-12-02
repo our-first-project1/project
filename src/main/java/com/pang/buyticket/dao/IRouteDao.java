@@ -15,4 +15,7 @@ public interface IRouteDao {
 
     //通过终点城市查询
     public List<Route> selectByDestCity(Object...params) throws SQLException;
+
+    //查询热点路线
+    public List<Route> selectHot() throws SQLException;
 }

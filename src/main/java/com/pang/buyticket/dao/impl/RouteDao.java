@@ -37,4 +37,11 @@ public class RouteDao extends BaseDao<Route> implements IRouteDao {
         List<Route> routes = this.getBeanList(sql, Route.class,params);
         return routes;
     }
+
+    @Override
+    public List<Route> selectHot() throws SQLException {
+        String sql = "select * from route where hot = 1 limit 0,8";
+        List<Route> routeList = this.getBeanList(sql, Route.class);
+        return routeList;
+    }
 }

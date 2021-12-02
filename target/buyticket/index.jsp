@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html lang="zh-CN">
 
@@ -199,9 +200,15 @@
       <div class="col-xs-10 fly_center">
         <div class="fly_cart">
           <ul>
-            <li>
+              <c:forEach items="${routes}" var="route">
+                  <li>
+                      <p class="position"><span>${route.routeDepartCity}</span><em>—</em><span>${route.routeDestCity}</span></p>
+                      <p class="price"><span>￥<b>${route.routePrice}</b>起</span><a href="/ticket?method=buyTicketByRoute&routeDepartCity=${route.routeDepartCity}&routeDestCity=${route.routeDestCity}&routePrice=${route.routePrice}">购买</a></p>
+                  </li>
+              </c:forEach>
+            <%--<li>
               <p class="position"><span>安康市</span><em>—</em><span>咸阳机场</span></p>
-              <p class="price"><span>￥<b>99.0</b>起</span><a>购买</a></p>
+              <p class="price"><span>￥<b>99.0</b>起</span><a href="#">购买</a></p>
             </li>
             <li>
               <p class="position"><span>北海市</span><em>—</em><span>南宁机场</span></p>
@@ -218,7 +225,7 @@
             <li>
               <p class="position"><span>渭南市</span><em>—</em><span>咸阳机场</span></p>
               <p class="price"><span>￥<b>42.5</b>起</span><a>购买</a></p>
-            </li>
+            </li>--%>
           </ul>
         </div>
       </div>

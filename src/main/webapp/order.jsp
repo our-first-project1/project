@@ -38,7 +38,7 @@
 				<h3 style="text-align: center;">
 					<strong>在线预定</strong>
 				</h3>
-				<form action="#" method="post" class="form-horizontal" role="form">
+				<form action="/order?method=insertOrderList" method="post" class="form-horizontal" role="form">
 					<div class="form-group">
 						<label class="col-sm-2 control-label">出行日期</label>
 						<div class="col-sm-10">
@@ -67,19 +67,19 @@
 					<div class="form-group">
 						<label class="col-sm-2 control-label">乘车人姓名</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="name" name="name" />
+							<input type="text" class="form-control" id="name" name="name" required />
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label">身份证号</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="person_id" name="personId" />
+							<input type="text" class="form-control" id="person_id" name="personId" required />
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-2 control-label">电话</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="telephone" name="telephone" />
+							<input type="text" class="form-control" id="telephone" name="telephone" required />
 						</div>
 					</div>
 					<div class="form-group">

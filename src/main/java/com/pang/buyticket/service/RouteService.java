@@ -41,4 +41,16 @@ public class RouteService {
         }
         return list;
     }
+
+    public List<Route> selectHot() {
+        List<Route> routeList = null;
+        try {
+            routeList = dao.selectHot();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            JDBCUtils.close();
+        }
+        return routeList;
+    }
 }

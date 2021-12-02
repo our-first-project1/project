@@ -1,5 +1,7 @@
 package com.pang.buyticket.dao;
 
+import com.pang.buyticket.entity.TicketList;
+
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
@@ -18,4 +20,9 @@ public interface ITicketList {
 
     //获取当前所有终点城市
     public List<Map<String,Object>> searchDestCity() throws SQLException;
+
+    //通过时间车站信息查询
+    public TicketList selectOne(Object...params) throws SQLException;
+
+    public int updateCount(Object...params) throws SQLException;
 }

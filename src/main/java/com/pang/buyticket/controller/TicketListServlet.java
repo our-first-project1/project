@@ -64,10 +64,12 @@ public class TicketListServlet extends BasicServlet {
         List<Map<String, Object>> mapDepartList = service.searchDepartCity();
         List<Map<String, Object>> mapDestList = service.searchDestCity();
         List<Map<String, Object>> mapList = service.searchTicketByRoute(routePrice,routeDepartCity, routeDestCity);
+        System.out.println(mapList);
 
         request.setAttribute("mapDepartList",mapDepartList);
         request.setAttribute("mapDestList",mapDestList);
         request.setAttribute("mapList",mapList);
+
         request.getRequestDispatcher(request.getContextPath()+"/queryTicket.jsp").forward(request,response);
     }
 
@@ -77,6 +79,7 @@ public class TicketListServlet extends BasicServlet {
         String departTime = request.getParameter("departTime");
         String departStation = request.getParameter("departStation");
         String destStation = request.getParameter("destStation");
+
 
         request.setAttribute("departDate",departDate);
         request.setAttribute("departTime",departTime);
