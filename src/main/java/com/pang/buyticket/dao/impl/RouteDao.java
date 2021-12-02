@@ -19,7 +19,7 @@ public class RouteDao extends BaseDao<Route> implements IRouteDao {
     @Override
     public List<Route> selectRoute(Object... params) throws SQLException {
         String sql = "select * from route where routeDepartCity = ? and routeDestCity = ?";
-        List<Route> routes = this.getBeanList(sql, Route.class, params[0], params[1]);
+        List<Route> routes = this.getBeanList(sql, Route.class, params);
 
         return routes;
     }
@@ -27,14 +27,14 @@ public class RouteDao extends BaseDao<Route> implements IRouteDao {
     @Override
     public List<Route> selectByDepartCity(Object... params) throws SQLException {
         String sql = "select * from route where routeDepartCity like concat('%',?,'%')";
-        List<Route> routes = this.getBeanList(sql, Route.class, params[0]);
+        List<Route> routes = this.getBeanList(sql, Route.class, params);
         return routes;
     }
 
     @Override
     public List<Route> selectByDestCity(Object... params) throws SQLException {
         String sql = "select * from route where routeDestCity like concat('%',?,'%')";
-        List<Route> routes = this.getBeanList(sql, Route.class, params[0]);
+        List<Route> routes = this.getBeanList(sql, Route.class,params);
         return routes;
     }
 }

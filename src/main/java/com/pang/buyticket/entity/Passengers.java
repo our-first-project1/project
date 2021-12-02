@@ -132,6 +132,7 @@ public class Passengers {
         this.pTicketId = pTicketId;
     }
 
+    @Override
     public String toString() {
         return "Passengers{pid = " + pid + ", pName = " + pName + ", pPersonId = " + pPersonId + ", pTelephone = " + pTelephone + ", pDate = " + pDate + ", pTicketId = " + pTicketId + "}";
     }

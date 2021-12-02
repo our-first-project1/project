@@ -166,14 +166,14 @@
   border-bottom: 1px solid #ccc;
 }
 .fly .fly_contain .fly_right {
-  padding: 0;
+
 }
 .fly .fly_contain .fly_right .fly_box {
   height: 324px;
   padding-top: 15px;
-  background-position: -230px 0;
+  background-position: 20px 0;
   background-repeat: no-repeat;
-  background-image: url(../image/baseskinicon.png);
+  background-image: url(../image/baseskini.png);
 }
 .fly .fly_contain .fly_right .fly_box ul li {
   padding-left: 10px;
@@ -197,14 +197,13 @@
   height: 100%;
 }
 .fly .fly_contain .fly_center .fly_cart {
-  margin-left: 19px;
   margin-top: 1px;
 }
 .fly .fly_contain .fly_center .fly_cart ul li {
   position: relative;
   float: left;
   display: inline;
-  width: 228px;
+  width: 222px;
   height: 113px;
   margin: 20px 10px 0 0px;
   background: #fffbf7;

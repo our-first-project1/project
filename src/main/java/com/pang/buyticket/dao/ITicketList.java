@@ -14,8 +14,8 @@ public interface ITicketList {
     public List<Map<String,Object>> searchTicketByRoute(Object...params) throws SQLException;
 
     //获取当前所有出发城市
-    public List<String> searchDepartCity() throws SQLException;
+    public List<Map<String,Object>> searchDepartCity() throws SQLException;
 
     //获取当前所有终点城市
-    public List<String> searchDestCity() throws SQLException;
+    public List<Map<String,Object>> searchDestCity() throws SQLException;
 }

@@ -30,12 +30,12 @@ public class TicketListService {
         return maps;
     }
 
-    //通过起、终点城市查询
-    public List<Map<String, Object>> searchTicketByRoute(String departCity, String destCity) {
+    //通过路线进行查询查询
+    public List<Map<String, Object>> searchTicketByRoute(String routePrice,String routeDepartCity, String routeDestCity) {
 
         List<Map<String, Object>> maps = null;
         try {
-            maps = dao.searchTicketByRoute(departCity,destCity);
+            maps = dao.searchTicketByRoute(routePrice,routeDepartCity,routeDestCity);
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
@@ -45,29 +45,29 @@ public class TicketListService {
     }
 
     //起始城市
-    public List<String> searchDepartCity(){
-        List<String> list = null;
+    public List<Map<String,Object>> searchDepartCity(){
+        List<Map<String,Object>> listDepartCity = null;
         try {
-            list = dao.searchDepartCity();
+            listDepartCity = dao.searchDepartCity();
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             JDBCUtils.close();
         }
-        return list;
+        return listDepartCity;
     }
 
 
     //终点城市
-    public List<String> searchDestCity(){
-        List<String> list = null;
+    public List<Map<String,Object>> searchDestCity(){
+        List<Map<String,Object>> listDestCity = null;
         try {
-            list = dao.searchDestCity();
+            listDestCity = dao.searchDestCity();
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             JDBCUtils.close();
         }
-        return list;
+        return listDestCity;
     }
 }

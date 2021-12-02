@@ -18,7 +18,10 @@ public class TicketListDao extends BaseDao implements ITicketList {
     //通过直接查票订购
     @Override
     public List<Map<String,Object>> searchTicket(Object...params) throws SQLException {
-        String sql = "select t.ticketId,t.departStation,t.destStation,d.departDate,t.departTime,t.busType,t.ticketPrice,t.ticketCounts from ticketlist t,dates d where d.departDate = ? and t.departCity like concat('%',?,'%') and t.destCity like concat('%',?,'%')";
+        String sql = "select t.ticketId ticketId,t.departStation departStation,t.destStation destStation" +
+                ",d.departDate departDate,t.departTime departTime,t.busType busType,t.ticketPrice ticketPrice" +
+                ",t.ticketCounts ticketCounts from ticketlist t,dates d where t.ticketStatus = '运营' " +
+                "and d.departDate = ? and t.departCity like concat('%',?,'%') and t.destCity like concat('%',?,'%')";
         List mapList = this.getMapList(sql, params);
         return mapList;
     }
@@ -26,24 +29,29 @@ public class TicketListDao extends BaseDao implements ITicketList {
     //通过路线进行定购(出发城市，终点城市)
     @Override
     public List<Map<String,Object>> searchTicketByRoute(Object...params) throws SQLException {
-        String sql = "select t.ticketId,t.departStation,t.destStation,d.departDate,t.departTime,t.busType,t.ticketPrice,t.ticketCounts from ticketlist t,dates d where t.departCity like concat('%',?,'%') and t.destCity like concat('%',?,'%')";
+        String sql = "select t.ticketId ticketId,t.departStation departStation,t.destStation destStation," +
+                "d.departDate departDate,t.departTime departTime,t.busType busType,t.ticketPrice ticketPrice" +
+                ",t.ticketCounts ticketCounts from ticketlist t,dates d where t.ticketStatus = '运营'" +
+                " and t.ticketPrice = ? and t.departCity like concat('%',?,'%') and t.destCity like concat('%',?,'%')";
         List mapList = this.getMapList(sql, params);
         return mapList;
     }
 
     //获取当前所有出发城市
     @Override
-    public List<String> searchDepartCity() throws SQLException {
-        String sql = "select departCity from ticketlist";
-        List list = this.getBeanList(sql, String.class);
-        return list;
+    public List<Map<String,Object>> searchDepartCity() throws SQLException {
+        String sql = "select distinct departCity from ticketlist";
+        //List list = this.getBeanList(sql, Object.class);
+        List mapListDepartCity = this.getMapList(sql);
+        return mapListDepartCity;
     }
 
     //获取当前所有终点城市
     @Override
-    public List<String> searchDestCity() throws SQLException {
-        String sql = "select destCity from ticketlist";
-        List list = this.getBeanList(sql, String.class);
-        return list;
+    public List<Map<String,Object>> searchDestCity() throws SQLException {
+        String sql = "select distinct destCity from ticketlist";
+        //List list = this.getBeanList(sql, Object.class);
+        List mapList = this.getMapList(sql);
+        return mapList;
     }
 }

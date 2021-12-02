@@ -17,22 +17,22 @@ public class StationDao extends BaseDao<Station> implements IStationDao {
 
     @Override
     public List<Station> selectStation(Object... params) throws SQLException {
-        String sql = "select * from station where city = ? and stationName = ?";
-        List<Station> list = this.getBeanList(sql, Station.class, params[0], params[1]);
+        String sql = "select * from station where city like concat('%',?,'%') and stationName like concat('%',?,'%')";
+        List<Station> list = this.getBeanList(sql, Station.class, params);
         return list;
     }
 
     @Override
     public List<Station> selectByCity(Object... params) throws SQLException {
         String sql = "select * from station from where city = ?";
-        List<Station> list = this.getBeanList(sql, Station.class, params[0]);
+        List<Station> list = this.getBeanList(sql, Station.class, params);
         return list;
     }
 
     @Override
     public List<Station> selectBystationName(Object... params) throws SQLException {
         String sql = "select * from station from where stationName like concat('%',?,'%')";
-        List<Station> list = this.getBeanList(sql, Station.class, params[0]);
+        List<Station> list = this.getBeanList(sql, Station.class, params);
         return list;
     }
 

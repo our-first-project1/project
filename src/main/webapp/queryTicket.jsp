@@ -45,29 +45,28 @@
 
 <div class="box2">
     <form action="/ticket?method=buyTicket" method="post">
-        <select class="form-control date" name="">
+        <select class="form-control date" name="departTime">
 
         </select>
         <select class="form-control begin" name="departCity">
-            <c:forEach items="departList" var="depart">
-                <option value="${depart}">${depart}</option>
+            <c:forEach items="${mapDepartList}" var="mapDepart">
+                <option value="${mapDepart.departCity}">${mapDepart.departCity}</option>
             </c:forEach>
         </select>
         <select class="form-control end" name="destCity">
-            <c:forEach items="destList" var="dest">
-                <option value="${dest}">${dest}</option>
+            <c:forEach items="${mapDestList}" var="mapDest">
+                <option value="${mapDest.destCity}">${mapDest.destCity}</option>
             </c:forEach>
         </select>
         <%--    <button>查找</button>--%>
-        <input type="submit" class="btn btn-default" value="搜索" />
+        <input type="submit" class="btn btn-default" value="搜索" style="margin-top: 30px;margin-left: 30px" />
     </form>
-
 
 </div>
 <div class="box1" style="margin-bottom: 50px">
 
     <table class="table  text-center">
-        <tr >
+        <tr style="color: black">
             <th>班车号</th>
             <th>起始站</th>
             <th>终点站</th>
@@ -78,6 +77,7 @@
             <th>剩余票数</th>
             <th>操作</th>
         </tr>
+
         <%--<tr >
             <td>1</td>
             <td>2</td>
@@ -90,8 +90,9 @@
             <td><button>预定</button></td>
         </tr>--%>
 
-        <c:forEach items="mapList" var="map">
-            <tr >
+
+        <c:forEach items="${mapList}" var="map">
+            <tr style="color: black">
                 <td>${map.ticketId}</td>
                 <td>${map.departStation}</td>
                 <td>${map.destStation}</td>
@@ -100,7 +101,7 @@
                 <td>${map.busType}</td>
                 <td>${map.ticketPrice}</td>
                 <td>${map.ticketCounts}</td>
-                <td><button>预定</button></td>
+                <td><a href="/ticket?method=downOrder&departDate=${map.departDate}&departTime=${map.departTime}&departStation=${map.departStation}&destStation=${map.destStation}" class="btn btn-info" onclick="">购买</a></td>
             </tr>
         </c:forEach>
     </table>
@@ -127,11 +128,11 @@
     function dateTimenow() {
         var date = new Date();
         var year = date.getFullYear();
-        var month = date.getMonth();
-        var day = date.getDate() + 1;
+        var month = date.getMonth()+1;
+        var day = date.getDate();
         var today = year + '-' + month + '-' + day;
         for (var i = 0; i < 30; i++) {
-            var option = "<option value='"+i+"'>"+today+"</option>"
+            var option = "<option value='"+today+"'>"+today+"</option>"
             $(".date").append(option)
             day = day - (-1);
             if (day > monthDay(month)){

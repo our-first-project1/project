@@ -33,9 +33,9 @@ public class UserDao extends BaseDao<User> implements IUserDao {
 
     @Override
     public int insertUser(User user) throws SQLException {
-        String sql = "insert into users values(?,?,?,?,?,?,?,?,?,null)";
+        String sql = "insert into users values(?,?,?,?,?,?,?,?,?,？)";
         int i = this.update(sql,user.getUid(),user.getUsername(),user.getPassword(),user.getName(),
-                user.getPersonId(),user.getEmail(),user.getTelephone(),user.getBirthday(),user.getSex());
+                user.getPersonId(),user.getEmail(),user.getTelephone(),user.getBirthday(),user.getSex(),"/image/default.jpg");
 
         return i;
     }

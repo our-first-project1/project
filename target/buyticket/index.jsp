@@ -21,28 +21,53 @@
   <link rel="stylesheet" href="./css/bootstrap.min.css" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="./css/jquery.horizontalmenu.css"/>
 
+  <style>
+    @font-face {
+      font-family: 'iconfont';
+      src: url('icon/iconfont.ttf') format('truetype');
+    }
+
+    .iconfont {
+      font-family: "iconfont" !important;
+      font-size: 16px;
+      font-style: normal;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    ul{
+      list-style: none;
+    }
+
+
+    .str_wrap {
+      padding-left: 3em;
+      padding-right: 3em;
+      background: #fefefe;
+      height: 3em;
+      line-height: 3em;
+      font-size: 1.2em;
+      overflow:hidden;
+      //zoom:1;
+      width:100%;
+      position:relative;
+      -moz-user-select: none;
+      -khtml-user-select: none;
+      user-select: none;
+      white-space:nowrap;
+    }
+    .str_move {
+      white-space:nowrap;
+      position:absolute;
+      top:0;
+      left:0;
+      cursor:move;
+    }
+  </style>
 </head>
 
 <body>
-<style>
-  @font-face {
-    font-family: 'iconfont';
-    src: url('icon/iconfont.ttf') format('truetype');
-  }
 
-  .iconfont {
-    font-family: "iconfont" !important;
-    font-size: 16px;
-    font-style: normal;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  ul{
-    list-style: none;
-  }
-
-</style>
 <div class="head" style="width: 100%; margin-top: 0px">
   <%@ include file="header.jsp" %>
 </div>
@@ -72,16 +97,18 @@
       <div class="banner">
         <div class="box">
           <div class="tab">
-            <label >出发
-              <input type="text" placeholder="请输入中文">
-            </label>
-            <label >到达
-              <input type="text" placeholder="请输入中文">
-            </label>
-            <label >出发日期
-              <input type="date" id="txtEnterDate">
-            </label>
-            <button class="submit">搜索</button>
+              <form action="/ticket?method=buyTicket" method="post">
+                  <label >出发
+                      <input type="text" name="departCity" placeholder="请输入中文">
+                  </label>
+                  <label >到达
+                      <input type="text" name="destCity" required placeholder="请输入中文">
+                  </label>
+                  <label >出发日期
+                      <input type="date" name="departTime" required id="txtEnterDate">
+                  </label>
+                  <input type="submit" class="submit" value="搜索" />
+              </form>
           </div>
         </div>
       </div>
@@ -91,16 +118,18 @@
       <div class="banner">
         <div class="box">
           <div class="tab">
-            <label >出发
-              <input type="text" placeholder="请输入中文">
-            </label>
-            <label >到达
-              <input type="text" placeholder="请输入中文">
-            </label>
-            <label >出发日期
-              <input type="date" id="">
-            </label>
-            <button class="submit">搜索</button>
+              <form action="ticket?method=buyTicket" method="post">
+                  <label >出发
+                      <input type="text" name="departCity" required placeholder="请输入中文">
+                  </label>
+                  <label >到达
+                      <input type="text" name="destCity" required placeholder="请输入中文">
+                  </label>
+                  <label >出发日期
+                      <input type="date" name="departTime" required="required">
+                  </label>
+                  <input type="submit" class="submit" value="搜索" />
+              </form>
           </div>
         </div>
       </div>
@@ -114,17 +143,13 @@
                 <input type="text" name="city" placeholder="请输入中文">
               </label>
               <label >汽车站
-                <input type="text" name="stationName" placeholder="请输入中文">
+                <input type="text" name="stationName" required placeholder="请输入中文">
               </label>
-
               <input class="submit" type="submit" value="搜索" />
             </form>
-
           </div>
         </div>
       </div>
-
-
     </div>
     <div class="ah-tab-content">
       <div class="banner">
@@ -145,6 +170,18 @@
     </div>
   </div>
 </div>
+
+
+<%--广告--%>
+<div class="htmleaf-container">
+  <div class="htmleaf-content">
+    <div class="str1 str_wrap" style="color: burlywood">
+      <a href="#" style="color: red;">Javascript是一种通用的脚本编程语言，也是一种基于（Object）和事件驱动并具有安全性能的脚本语言。</a>
+      <a href="#">Javascript是一种通用的脚本编程语言，也是一种基于（Object）和事件驱动并具有安全性能的脚本语言。</a>
+    </div>
+  </div>
+</div>
+
 
 
 <div class="fly">
@@ -185,35 +222,35 @@
           </ul>
         </div>
       </div>
-      <div class="col-xs-2 fly_right">
-        <div class="fly_box">
-          <ul>
+      <div class="col-xs-2 fly_right" style="padding-right: 0px">
+        <div class="fly_box" style="text-align: center">
+          <ul style="color: white">
             <li>
-              <div><span>南京</span><em>-</em><span>漯河</span></div>
+              <div><span><a href="#" style="color: white">南京-漯河</a></span></div>
             </li>
             <li>
-              <div><span>南京</span><em>-</em><span>莱芜</span></div>
+              <div><span><a href="#" style="color: white">南京-莱芜</a></span></div>
             </li>
             <li>
-              <div><span>南京</span><em>-</em><span>连云港</span></div>
+              <div><span><a href="#" style="color: white">南京-连云港</a></span></div>
             </li>
             <li>
-              <div><span>南京</span><em>-</em><span>莱州</span></div>
+              <div><span><a href="#" style="color: white">南京-莱州</a></span></div>
             </li>
             <li>
-              <div><span>南京</span><em>-</em><span>含山</span></div>
+              <div><span><a href="#" style="color: white">南京-莱州</a></span></div>
             </li>
             <li>
-              <div><span>南京</span><em>-</em><span>金坛</span></div>
+              <div><span><a href="#" style="color: white">南京-莱州</a></span></div>
             </li>
             <li>
-              <div><span>南京</span><em>-</em><span>江阴</span></div>
+              <div><span><a href="#" style="color: white">南京-莱州</a></span></div>
             </li>
             <li>
-              <div><span>南京</span><em>-</em><span>信阳</span></div>
+              <div><span><a href="#" style="color: white">南京-莱州</a></span></div>
             </li>
             <li>
-              <div><span>南京</span><em>-</em><span>沂南</span></div>
+              <div><span><a href="#" style="color: white">南京-莱州</a></span></div>
             </li>
           </ul>
         </div>
@@ -343,16 +380,22 @@
 
 
 </body>
-<script src="js/jquery-3.1.1.js"crossorigin="anonymous"></script>
+<script src="js/jquery-3.1.1.js" crossorigin="anonymous"></script>
 <!-- integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" -->
-
-<script src="js/bootstrap.min.js"crossorigin="anonymous"></script>
+<script src="js/jquery-2.1.1.min.js" crossorigin="anonymous"></script>
+<script src="js/bootstrap.min.js" crossorigin="anonymous"></script>
 <!-- integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" -->
-
+<script src="js/jquery.liMarquee.js" type="text/javascript" charset="utf-8"></script>
 <script src="js/swiper-bundle.min.js"></script>
 
 <script src="./js/jquery.horizontalmenu.js" type="text/javascript" charset="utf-8"></script>
 <script>
+
+  $(window).load(function(){
+    // $('.str1').liMarquee();
+    $(".str1").liMarquee();
+
+  });
 
   function dateTimenow() {
     var date = new Date();
@@ -366,8 +409,7 @@
   $(function () {
     dateTimenow()
   })
-</script>
-<script>
+
   var swiper = new Swiper(".mySwiper", {
     autoplay:true,
     scrollbar: {
@@ -387,6 +429,6 @@
     });
   });
 
-
 </script>
+
 </html>

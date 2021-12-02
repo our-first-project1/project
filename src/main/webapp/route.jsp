@@ -41,7 +41,6 @@
         <a class="ah-tab-item" href="">首页</a>
         <a class="ah-tab-item" href="">汽车票</a>
         <a class="ah-tab-item" href="">汽车站</a>
-        <a class="ah-tab-item" href="">路线</a>
     </div>
 </div>
 
@@ -96,7 +95,7 @@
                     <td><span style="color: #000000;">${route.routePrice}</span></td>
 
                     <td>
-                        <a href="" class="btn btn-info" onclick="">购买</a>
+                        <a href="/ticket?method=buyTicketByRoute&routeDepartCity=${route.routeDepartCity}&routeDestCity=${route.routeDestCity}&routePrice=${route.routePrice}" class="btn btn-info" >购买</a>
                     </td>
                 </tr>
             </c:forEach>
