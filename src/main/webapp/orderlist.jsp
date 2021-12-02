@@ -59,20 +59,20 @@
             <table class="table table-bordered">
                 <thead>
                 <tr>
-                    <th>订单编号</th>
-                    <th>姓名</th>
-                    <th>身份证号</th>
-                    <th>出发日期</th>
-                    <th>出发时间</th>
-                    <th>起始站</th>
-                    <th>目的地</th>
-                    <th>班次</th>
-                    <th>座位号</th>
-                    <th>检票窗口</th>
-                    <th>车票类型</th>
-                    <th>车票价格</th>
-                    <th>车票状态</th>
-                    <th>操作</th>
+                    <th style="text-align:center">订单编号</th>
+                    <th style="text-align:center">姓名</th>
+                    <th style="text-align:center">身份证号</th>
+                    <th style="text-align:center">出发日期</th>
+                    <th style="text-align:center">出发时间</th>
+                    <th style="text-align:center">起始站</th>
+                    <th style="text-align:center">目的地</th>
+                    <th style="text-align:center">班次</th>
+                    <th style="text-align:center">座位号</th>
+                    <th style="text-align:center">检票窗口</th>
+                    <th style="text-align:center">车票类型</th>
+                    <th style="text-align:center">车票价格</th>
+                    <th style="text-align:center">车票状态</th>
+                    <th style="text-align:center">操作</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -109,12 +109,12 @@
             </table>
             <ul class="pagination">
                 <li>
-                    <a href="/orders?method=viewAll&pageNow=1">首页</a>
+                    <a href="${pageContext.request.contextPath}/orders?method=viewAll&pageNow=1">首页</a>
                 </li>
                 <c:forEach begin="1" end="${vo.myPages}" var="page">
                     <li>
                         <c:if test="${vo.pageNow ne page}">
-                            <a href="/orders?method=viewAll&pageNow=${page}">${page}</a>
+                            <a href="${pageContext.request.contextPath}/orders?method=viewAll&pageNow=${page}">${page}</a>
                         </c:if>
                         <c:if test="${vo.pageNow eq page}">
                             <a style="background: orange ;color: white;">${page}</a>
@@ -122,7 +122,7 @@
                     </li>
                 </c:forEach>
                 <li>
-                    <a href="/orders?method=viewAll&pageNow=${vo.myPages}">末页</a>
+                    <a href="${pageContext.request.contextPath}/orders?method=viewAll&pageNow=${vo.myPages}">末页</a>
                 </li>
             </ul>
         </div>

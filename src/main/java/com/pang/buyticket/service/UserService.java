@@ -1,6 +1,6 @@
 package com.pang.buyticket.service;
 
-import com.pang.buyticket.dao.UserDao;
+import com.pang.buyticket.dao.impl.UserDao;
 import com.pang.buyticket.entity.User;
 import com.pang.buyticket.utils.CommonUtils;
 import com.pang.buyticket.utils.JDBCUtils;

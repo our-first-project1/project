@@ -1,6 +1,6 @@
 package com.pang.buyticket.service;
 
-import com.pang.buyticket.dao.OrderDao;
+import com.pang.buyticket.dao.impl.OrderDao;
 import com.pang.buyticket.entity.OrdersList;
 import com.pang.buyticket.utils.JDBCUtils;
 import com.pang.buyticket.vo.PageVO;

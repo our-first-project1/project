@@ -1,5 +1,6 @@
-package com.pang.buyticket.dao;
+package com.pang.buyticket.dao.impl;
 
+import com.pang.buyticket.dao.BaseDao;
 import com.pang.buyticket.entity.OrdersList;
 
 import java.sql.SQLException;
